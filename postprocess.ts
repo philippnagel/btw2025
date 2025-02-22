@@ -1,5 +1,5 @@
-import { readCSV } from 'https://deno.land/x/flat@0.0.x/mod.ts';
-import { writeJson } from 'https://deno.land/std@0.92.0/fs/mod.ts';
+import { readCSV } from 'https://deno.land/x/flat@0.0.15/mod.ts';
+import { writeJson } from 'https://deno.land/std@1.0.13/fs/mod.ts';
 
 const csvPath = './data.csv';
 const jsonPath = './data.json';
