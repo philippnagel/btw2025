@@ -15,6 +15,9 @@ try {
 
   await Deno.writeTextFile(jsonPath, jsonString);
   console.log(`Data has been written to ${jsonPath}`);
+
+  await Deno.remove(csvPath);
+  console.log(`CSV file ${csvPath} has been deleted`);
 } catch (error) {
   console.error('Error processing CSV to JSON:', error);
 }
