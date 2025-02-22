@@ -5,7 +5,7 @@ const jsonPath = './data.json';
 
 try {
   const originalCSV = await readCSV(csvPath, {
-    delimiter: ';',
+    separator: ';',
     skipFirstRow: false,
   });
 
