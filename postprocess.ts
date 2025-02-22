@@ -4,7 +4,11 @@ const csvPath = './data.csv';
 const jsonPath = './data.json';
 
 try {
-  const originalCSV = await readCSV(csvPath);
+  const originalCSV = await readCSV(csvPath, {
+    delimiter: ';',
+    skipFirstRow: false,
+  });
+
   console.log(originalCSV);
 
   const jsonString = JSON.stringify(originalCSV, null, 2);
