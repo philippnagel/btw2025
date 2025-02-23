@@ -1,11 +1,12 @@
 name: data
 on:
   schedule:
-    - cron: 0 0 * * *
+    - cron: "* * * * *"
   workflow_dispatch: {}
   push:
     paths:
       - .github/workflows/flat.yml
+      - postprocess.ts
 jobs:
   scheduled:
     runs-on: ubuntu-latest
@@ -16,3 +17,9 @@ jobs:
           deno-version: v1.10.x
       - name: Check out repo
         uses: actions/checkout@v2
+      - name: Fetch data
+        uses: githubocto/flat@v3
+        with:
+          http_url: https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata/btw25/csv/kerg.csv
+          downloaded_filename: data.csv
+          postprocess: postprocess.ts
